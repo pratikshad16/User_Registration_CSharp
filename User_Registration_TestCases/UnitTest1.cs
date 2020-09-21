@@ -101,12 +101,19 @@ namespace User_Registration_TestCases
             bool result = userRegistration.ValidatePasswordPattern("Pratbghfd");
             Assert.IsFalse(result);
         }
-            [Test]
-            public void GivenPassword_WhenContainMoreNumericNumber_ShouldReturnTrue()
-            {
-                UserRegistrationMain userRegistration = new UserRegistrationMain();
-                bool result = userRegistration.ValidatePasswordPattern("Pra@tb5h7d");
-                Assert.IsTrue(result);
-            }
+        [Test]
+        public void GivenPassword_WhenContainMoreNumericNumber_ShouldReturnTrue()
+        { 
+           UserRegistrationMain userRegistration = new UserRegistrationMain();
+           bool result = userRegistration.ValidatePasswordPattern("Pra@tb5h7d");
+           Assert.IsTrue(result);
         }
+        [Test]
+        public void GivenPassword_WhenNotContainSpecialChar_ShouldReturnFalse()
+        {
+            UserRegistrationMain userRegistration = new UserRegistrationMain();
+            bool result = userRegistration.ValidatePasswordPattern("Pratb5h7d");
+            Assert.IsFalse(result);
+        }
+    }
 }
