@@ -10,6 +10,7 @@ namespace User_Registration
         string NamePattern = "^[A-Z][a-z]{2,}$";
         string EmailPattern = "^[0-9a-zA-Z]+([+_.-][0-9a-zA-Z]+)*@[a-zA-Z0-9]+([.][a-zA-Z]{2,3}){1,2}$";
         string MobilePattern = "^[0-9]{2}[ ][0-9]{10}";
+        string PasswordPattern = "^[A-Za-z0-9]{8,}$";
         public bool ValidateFirstName(string firstName)
         {
             return Regex.IsMatch(firstName, NamePattern);
@@ -25,6 +26,10 @@ namespace User_Registration
         public bool ValidateMobileNumber(string mobileNumber)
         {
             return Regex.IsMatch(mobileNumber, MobilePattern);
+        }
+        public bool ValidatePasswordPattern(string passWord)
+        {
+            return Regex.IsMatch(passWord, PasswordPattern);
         }
     }
 }

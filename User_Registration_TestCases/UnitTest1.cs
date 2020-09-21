@@ -73,5 +73,19 @@ namespace User_Registration_TestCases
             bool result = userRegistration.ValidateMobileNumber("717654378967");
             Assert.IsFalse(result);
         }
+        [Test]
+        public void GivenPassword_WhenWithMinimumEightChracters_ShouldReturnTrue()
+        {
+            UserRegistrationMain userRegistration = new UserRegistrationMain();
+            bool result = userRegistration.ValidatePasswordPattern("Prathb5f");
+            Assert.IsTrue(result);
+        }
+        [Test]
+        public void GivenPassword_WhenLessThanEightChracters_ShouldReturnFalse()
+        {
+            UserRegistrationMain userRegistration = new UserRegistrationMain();
+            bool result = userRegistration.ValidatePasswordPattern("Prathb5");
+            Assert.IsFalse(result);
+        }
     }
 }
