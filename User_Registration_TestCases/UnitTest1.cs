@@ -45,10 +45,32 @@ namespace User_Registration_TestCases
             bool result = userRegistration.ValidateEmail("dhagepratiksha16@gmail.com");
             Assert.IsTrue(result);
         }
+        [Test]
         public void GivenEmailId_WhenIsNotProper_ShouldReturnFalse()
         {
             UserRegistrationMain userRegistration = new UserRegistrationMain();
             bool result = userRegistration.ValidateEmail("dhagepratiksha16@gmail");
+            Assert.IsFalse(result);
+        }
+        [Test]
+        public void GivenMobileNumber_WhenProper_ShouldReturnTrue()
+        {
+            UserRegistrationMain userRegistration = new UserRegistrationMain();
+            bool result = userRegistration.ValidateMobileNumber("91 99865467843");
+            Assert.IsTrue(result);
+        }
+        [Test]
+        public void GivenMobileNumber_WhenLessThanTenDigits_ShouldReturnFalse()
+        {
+            UserRegistrationMain userRegistration = new UserRegistrationMain();
+            bool result = userRegistration.ValidateMobileNumber("71 765437896");
+            Assert.IsFalse(result);
+        }
+        [Test]
+        public void GivenMobileNumber_WhenNoSpaceAfterCountryCode_ShouldReturnFalse()
+        {
+            UserRegistrationMain userRegistration = new UserRegistrationMain();
+            bool result = userRegistration.ValidateMobileNumber("717654378967");
             Assert.IsFalse(result);
         }
     }
