@@ -87,5 +87,12 @@ namespace User_Registration_TestCases
             bool result = userRegistration.ValidatePasswordPattern("Prathb5");
             Assert.IsFalse(result);
         }
+        [Test]
+        public void GivenPassword_WhenNotContainUpperCaseChar_ShouldReturnFalse()
+        {
+            UserRegistrationMain userRegistration = new UserRegistrationMain();
+            bool result = userRegistration.ValidatePasswordPattern("prathkntf");
+            Assert.IsFalse(result);
+        }
     }
 }
