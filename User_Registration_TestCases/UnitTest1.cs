@@ -77,7 +77,7 @@ namespace User_Registration_TestCases
         public void GivenPassword_WhenWithMinimumEightChracters_ShouldReturnTrue()
         {
             UserRegistrationMain userRegistration = new UserRegistrationMain();
-            bool result = userRegistration.ValidatePasswordPattern("Prathb5f");
+            bool result = userRegistration.ValidatePasswordPattern("Pra#thb5f");
             Assert.IsTrue(result);
         }
         [Test]
@@ -105,7 +105,7 @@ namespace User_Registration_TestCases
             public void GivenPassword_WhenContainMoreNumericNumber_ShouldReturnTrue()
             {
                 UserRegistrationMain userRegistration = new UserRegistrationMain();
-                bool result = userRegistration.ValidatePasswordPattern("Pratb5h7d");
+                bool result = userRegistration.ValidatePasswordPattern("Pra@tb5h7d");
                 Assert.IsTrue(result);
             }
         }
