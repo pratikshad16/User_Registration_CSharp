@@ -18,7 +18,7 @@ namespace User_Registration_TestCases
             Assert.IsTrue(result);
         }
         [Test]
-        public void GivenFirstName_WhenStartsWithCapAndLessThanThreeChar_ShouldReturnTrue()
+        public void GivenFirstName_WhenStartsWithCapAndLessThanThreeChar_ShouldReturnFalse()
         {
             UserRegistrationMain userRegistration = new UserRegistrationMain();
             bool result = userRegistration.ValidateFirstName("Pr");
@@ -32,10 +32,23 @@ namespace User_Registration_TestCases
             Assert.IsTrue(result);
         }
         [Test]
-        public void GivenlastName_WhenStartsWithCapAndLessThanThreeChar_ShouldReturnTrue()
+        public void GivenlastName_WhenStartsWithCapAndLessThanThreeChar_ShouldReturnFalse()
         {
             UserRegistrationMain userRegistration = new UserRegistrationMain();
             bool result = userRegistration.ValidateLastName("Dh");
+            Assert.IsFalse(result);
+        }
+        [Test]
+        public void GivenEmailId_WhenProper_ShouldReturnTrue()
+        {
+            UserRegistrationMain userRegistration = new UserRegistrationMain();
+            bool result = userRegistration.ValidateEmail("dhagepratiksha16@gmail.com");
+            Assert.IsTrue(result);
+        }
+        public void GivenEmailId_WhenIsNotProper_ShouldReturnFalse()
+        {
+            UserRegistrationMain userRegistration = new UserRegistrationMain();
+            bool result = userRegistration.ValidateEmail("dhagepratiksha16@gmail");
             Assert.IsFalse(result);
         }
     }
