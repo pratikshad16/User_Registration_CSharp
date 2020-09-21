@@ -24,5 +24,19 @@ namespace User_Registration_TestCases
             bool result = userRegistration.ValidateFirstName("Pr");
             Assert.IsFalse(result);
         }
+        [Test]
+        public void GivenLastName_WhenStartsWithCapAndMinThreeChar_ShouldReturnTrue()
+        {
+            UserRegistrationMain userRegistration = new UserRegistrationMain();
+            bool result = userRegistration.ValidateLastName("Dhage");
+            Assert.IsTrue(result);
+        }
+        [Test]
+        public void GivenlastName_WhenStartsWithCapAndLessThanThreeChar_ShouldReturnTrue()
+        {
+            UserRegistrationMain userRegistration = new UserRegistrationMain();
+            bool result = userRegistration.ValidateLastName("Dh");
+            Assert.IsFalse(result);
+        }
     }
 }

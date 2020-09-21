@@ -7,10 +7,14 @@ namespace User_Registration
 {
     public class UserRegistrationMain
     {
-        string FirstName = "^[A-Z][a-z]{2,}$";
+        string NamePattern = "^[A-Z][a-z]{2,}$";
         public bool ValidateFirstName(string firstName)
         {
-            return Regex.IsMatch(firstName, FirstName);
+            return Regex.IsMatch(firstName, NamePattern);
+        }
+        public bool ValidateLastName(string lastName)
+        {
+            return Regex.IsMatch(lastName, NamePattern);
         }
     }
 }
