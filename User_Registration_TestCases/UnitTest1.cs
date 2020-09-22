@@ -115,5 +115,32 @@ namespace User_Registration_TestCases
             bool result = userRegistration.ValidatePasswordPattern("Pratb5h7d");
             Assert.IsFalse(result);
         }
+        [Test]
+        public void GivenEmails_WhenChecked_ShouldReturnExpectedResult()
+        {
+            UserRegistrationMain userRegistration = new UserRegistrationMain();
+            Assert.IsTrue(userRegistration.ValidateEmail("abc@yahoo.com"));
+            Assert.IsTrue(userRegistration.ValidateEmail("abc-100@yahoo.com"));
+            Assert.IsTrue(userRegistration.ValidateEmail("abc.100@yahoo.com"));
+            Assert.IsTrue(userRegistration.ValidateEmail("abc111@abc.com"));
+            Assert.IsTrue(userRegistration.ValidateEmail("abc-100@abc.net"));
+            Assert.IsTrue(userRegistration.ValidateEmail("abc.100@abc.com.au"));
+            Assert.IsTrue(userRegistration.ValidateEmail("abc@1.com"));
+            Assert.IsTrue(userRegistration.ValidateEmail("abc@gmail.com.com"));
+            Assert.IsTrue(userRegistration.ValidateEmail("abc+100@gmail.com"));
+            Assert.IsFalse(userRegistration.ValidateEmail("abc"));
+            Assert.IsFalse(userRegistration.ValidateEmail("abc123@gmail.a"));
+            Assert.IsFalse(userRegistration.ValidateEmail("abc123@.com"));
+            Assert.IsFalse(userRegistration.ValidateEmail("abc123@.com.com"));
+            Assert.IsFalse(userRegistration.ValidateEmail(".abc@abc.com"));
+            Assert.IsFalse(userRegistration.ValidateEmail("abc()*@gmail.com"));
+            Assert.IsFalse(userRegistration.ValidateEmail("abc@%*.com"));
+            Assert.IsFalse(userRegistration.ValidateEmail("abc..2002@gmail.com"));
+            Assert.IsFalse(userRegistration.ValidateEmail("abc.@gmail.com"));
+            Assert.IsFalse(userRegistration.ValidateEmail("abc@abc@gmail.com"));
+            Assert.IsFalse(userRegistration.ValidateEmail("abc@gmail.com.2a"));
+            Assert.IsFalse(userRegistration.ValidateEmail("abc@gmail.com.aa.au"));
+
+        }
     }
 }
